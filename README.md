@@ -1,1 +1,1 @@
-# skypey
+# skypey React App : PET project
