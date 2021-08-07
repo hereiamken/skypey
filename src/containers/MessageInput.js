@@ -9,7 +9,7 @@ const MessageInput = ({value})=> {
         store.dispatch(setTypingValue(e.target.value));
     };
 
-    const state = store.getStore();
+    const state = store.getState();
 
     const handleSubmit = e => {
         e.preventDefault();

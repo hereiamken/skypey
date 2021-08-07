@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useEffect, useRef} from "react";
 import "./Chats.css";
 
 const Chat = ({message}) => {
@@ -11,8 +11,17 @@ const Chat = ({message}) => {
 };
 
 const Chats = ({messages}) => {
+
+    const chatsRef = useRef();
+
+    const scrollToBottom = () => (chatsRef.current.scrollTop = chatsRef.current.scrollHeight);
+    
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
+
     return(
-        <div className="Chats">
+        <div className="Chats" ref={chatsRef}>
             {messages.map((message) => ( 
                 <Chat message={message} key={message.number} />
             ))}
